@@ -5,7 +5,7 @@ import static codigo.Tokens.*;
 %type Tokens
 L=[a-zA-Z_]+
 D=[0-9]+
-espacio=[,\t,\r,\n]+
+espacio=[ \t  \r \n]+
 
 %{
     public String lexeme;
@@ -16,14 +16,13 @@ espacio=[,\t,\r,\n]+
 {espacio} {/*ignore*/}
 
 /*comments*/
-( "//"(.)* ) {/*Ignore*/}
-( "/*"(.)* ) {/*Ignore*/}
-( "*/ *"(.)* ) {/*Ignore*/}
- "\n" {return Linea;}
+\/\/.+ {lexeme=yytext(); return comentario1;}
+\/\*.+(\n|.+)*\*\/  {lexeme=yytext(); return comentario2;}
+ 
 
 
 /* para iniciar */
-("inicio") {lexeme=yytext(); return Inicio;}
+("inicio") {lexeme=yytext(); return inicio;}
 
 /*para terminar */
 ("fin") {lexeme=yytext(); return End;}
@@ -71,30 +70,29 @@ con_parametros |
 ejecutar |
 imprimir |
 imprimir_ln  {lexeme=yytext(); return Reservadas;}
-{L}({L}|{D})* {lexeme = yytext(); return Identificador;}
+
 ("(-"{D}+")") | {D}+ {lexeme = yytext(); return Numero;}
-. {return ERROR;}
+
 
 
 /*simbolos*/
-"->" { return asignar;}
-"+" { return suma;}
-"-" { return resta;}
-"*" { return multi;}
-"/" {return division;}
-"=" {; return igual;}
-"," { return coma;}
-"." { return punto;}
-";" { return puntocoma;}
-"(" { return parentOpen;}
-")" {return parenClose;}
-"[" { return corchOpen;}
-"]" {return corchClose;}
-"{" {Return keyopen;}
-"}" {return keyclose; } 
-\" { return comillas;}
-"_" { return guion_low;}
-">"  { return mayor_que;}
-"or" { return operadorOr;}
-"and"  { return operadorAnd;}
-"not"  { return operadorNot; lexeme = yytext();}
+"->" {  lexeme = yytext(); return asignar;}
+"," {  lexeme = yytext(); return coma;}
+"." {  lexeme = yytext(); return punto;}
+";" { lexeme = yytext();  return puntocoma;}
+"(" {  lexeme = yytext(); return parentOpen;}
+")" { lexeme = yytext(); return parenClose;}
+"[" {  lexeme = yytext(); return corchOpen;}
+"]" { lexeme = yytext(); return corchClose;}
+"{" { lexeme = yytext(); return keyopen;}
+"}" { lexeme = yytext(); return keyclose; } 
+\" {  lexeme = yytext(); return comillas;}
+"_" {  lexeme = yytext(); return guion_low;}
+
+(mayor|menor|es_igual|mayor_o_igual|menor_o_igual|es_diferente) {lexeme = yytext(); return operadorRelacional;}
+[+|\-|\/|*] {  lexeme = yytext(); return operadorAritmetico;}
+(or|and|not) {  lexeme = yytext(); return operadorLogico;}
+
+/* variable */
+_[a-zA-Z0-9]+_ {  lexeme = yytext(); return variable;}
+. {return ERROR;}

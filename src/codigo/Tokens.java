@@ -11,20 +11,24 @@ package codigo;
  * @author pjbco
  */
 public enum Tokens {
-    Inicio,
+    inicio,
     End, 
     tipo_dato,
     Reservadas, 
-    Identificador,
+    variable,
     Numero,
     ERROR,
     asignar,
-    suma,
-    resta,
-    division,
-    mayor,
-    menor,
-    igual,
+    
+    operadorAritmetico,
+    operadorRelacional,
+    operadorLogico,
+    
+    // comentarios 
+    comentario1,
+    comentario2,
+    
+    
     coma,
     punto,
     puntocoma,
@@ -36,8 +40,5 @@ public enum Tokens {
     keyclose,
     comillas,
     guion_low,
-    mayor_que,
-    operadorOr,
-    operadorAnd,
-    operadorNot
+    
 }

@@ -124,9 +124,69 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     case ERROR:
                         resultado += "Simbolo no definido\n";
                         break;
-                    case Inicio:
+                    case inicio:
                         resultado += lexer.lexeme + ": Es un " + tokens + "\n";
                         break;
+                    case End:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case tipo_dato:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case Reservadas:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    
+                    case Numero:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case asignar:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case operadorAritmetico: case operadorRelacional: case operadorLogico:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case coma:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case punto:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case puntocoma:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case parentOpen:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case parenClose:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case corchOpen:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case corchClose:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case keyopen:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break; 
+                    case keyclose:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case comillas:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case guion_low:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case variable:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    case comentario1: case comentario2:
+                        resultado += lexer.lexeme + ": Es un " + tokens + "\n";
+                        break;
+                    
+                        
                     default:
                         resultado += "Token: " + tokens + "\n";
                         break;
