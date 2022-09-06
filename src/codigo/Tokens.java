@@ -19,6 +19,13 @@ public enum Tokens {
     Numero,
     ERROR,
     asignar,
+    potencia,
+    modulo,
+    Identificador,
+    igual,
+    interrogacionFin,
+    interrogacionInicio,
+    impresion_con_salto,
     
     operadorAritmetico,
     operadorRelacional,

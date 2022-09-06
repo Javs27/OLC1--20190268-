@@ -182,11 +182,30 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     case variable:
                         resultado += lexer.lexeme + ": Es un " + tokens + "\n";
                         break;
+                    case potencia:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case modulo:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case igual:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case Identificador:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case interrogacionFin:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case interrogacionInicio:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
+                    case impresion_con_salto:
+                        resultado += lexer.lexeme + ": Es un  " + tokens + "\n";
+                        break;
                     case comentario1: case comentario2:
                         resultado += lexer.lexeme + ": Es un " + tokens + "\n";
-                        break;
-                    
-                        
+                        break;  
                     default:
                         resultado += "Token: " + tokens + "\n";
                         break;

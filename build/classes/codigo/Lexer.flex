@@ -69,6 +69,8 @@ fin_metodo |
 con_parametros |
 ejecutar |
 imprimir |
+potencia |
+modulo|
 imprimir_ln  {lexeme=yytext(); return Reservadas;}
 
 ("(-"{D}+")") | {D}+ {lexeme = yytext(); return Numero;}
@@ -88,8 +90,13 @@ imprimir_ln  {lexeme=yytext(); return Reservadas;}
 "}" { lexeme = yytext(); return keyclose; } 
 \" {  lexeme = yytext(); return comillas;}
 "_" {  lexeme = yytext(); return guion_low;}
-
-(mayor|menor|es_igual|mayor_o_igual|menor_o_igual|es_diferente) {lexeme = yytext(); return operadorRelacional;}
+"=" {  lexeme = yytext(); return igual;}
+"?" {  lexeme = yytext(); return interrogacionFin;}
+"¿ " {  lexeme = yytext(); return interrogacionInicio;}
+"imprimir_ln" {  lexeme = yytext(); return impresion_con_salto;}
+/* Identificador */
+{L}({L}|{D})* {lexeme=yytext(); return Identificador;}
+(< |>| mayor|menor|es_igual|mayor_o_igual|menor_o_igual|es_diferente) {lexeme = yytext(); return operadorRelacional;}
 [+|\-|\/|*] {  lexeme = yytext(); return operadorAritmetico;}
 (or|and|not) {  lexeme = yytext(); return operadorLogico;}
 

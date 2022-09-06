@@ -1,1 +1,1 @@
-ingresar _joel_ como int con_valor 5 ;
+javier
